@@ -1,153 +1,150 @@
-# Gerador Ambulatorial Electron
+# Gerador Ambulatorial
 
-Este README descreve a futura reimplementação do projeto em **Electron + Node.js**.
+Aplicativo desktop em **Electron + Node.js** para gerar um lote PDF ambulatorial a partir de templates locais. O lote pode ser salvo no computador, enviado para impressão pelo diálogo do sistema ou enviado por Gmail API/OAuth.
 
-O projeto será reconstruído do zero a partir de `backup_original/`, mantendo o mesmo objetivo: gerar documentos ambulatoriais impressos em saúde mental a partir de templates PDF existentes.
+O sistema é local/offline-first para preenchimento e geração documental. Ele não é prontuário eletrônico completo, não é prescrição eletrônica validada nacionalmente, não faz assinatura digital e não substitui assinatura manual quando exigida.
 
-O envio ao GitHub será feito manualmente pelo proprietário do projeto depois que a estrutura local estiver pronta.
+## Requisitos
 
-## Objetivo
+- Node.js 20 ou superior.
+- npm.
+- Sistema operacional com suporte ao Electron.
+- Conta Google/Gmail e cliente OAuth próprio se for usar envio por e-mail.
 
-Criar um aplicativo desktop local/offline-first para:
+## Instalação
 
-- preencher dados de paciente, atendimento, evolução e medicações;
-- gerar um PDF único de lote;
-- salvar o lote no computador;
-- imprimir o lote;
-- em uma segunda etapa, transmitir o lote por Gmail API/OAuth.
-
-O sistema não é prontuário eletrônico completo, não é prescrição eletrônica validada nacionalmente e não substitui assinatura manual quando exigida.
-
-## Fonte inicial
-
-Ao iniciar a reimplementação, a única pasta preservada poderá ser:
-
-```text
-backup_original/
-```
-
-Essa pasta deve ser usada como referência histórica, visual e documental. Ela não deve ser modificada.
-
-Arquivos importantes esperados em `backup_original/`:
-
-- `main.png`: referência visual da tela principal;
-- `medic_field.png`: referência visual da área de medicações;
-- `popup-presc.png`: referência visual do popup/painel de prescrição;
-- `ficha_evolucao.pdf`: template da evolução;
-- `tabela_organizar_remedios.pdf`: template da tabela de medicações;
-- `remedio.pdf`: template da prescrição.
-
-## Stack prevista
-
-- Electron;
-- Node.js;
-- HTML/CSS/JavaScript no renderer;
-- `pdf-lib` para geração e união de PDFs;
-- `googleapis` para Gmail API/OAuth na etapa de e-mail;
-- `keytar` ou equivalente seguro para tokens;
-- `vitest`, `node:test` ou equivalente para testes.
-
-## Etapas do desenvolvimento
-
-### Etapa 1: MVP local
-
-Primeiro objetivo: gerar o lote PDF pronto para salvar no sistema e imprimir.
-
-Inclui:
-
-- UI principal em Electron;
-- formulário de paciente, evolução e medicações;
-- tabela fixa com 10 posições de medicação;
-- 5 linhas visíveis com scrollbar;
-- cinco horários: Café, Almoço, Lanche, Jantar e Dormir;
-- campo separado para meses/cópias da prescrição;
-- geração de PDF único de lote;
-- prescrição avulsa sem evolução;
-- salvamento via diálogo nativo do sistema;
-- impressão local/de rede ou stub seguro até validação real.
-
-### Etapa 2: MVP e-mail
-
-Segundo objetivo: transmitir o lote por Gmail.
-
-Inclui:
-
-- Gmail API via `googleapis`;
-- OAuth seguro;
-- armazenamento seguro de tokens;
-- e-mail de destino configurável;
-- engrenagem ao lado de **Enviar por email**;
-- teste de envio sem dados sensíveis;
-- envio do PDF único gerado pelo botão **Transmitir**.
-
-## Botão Transmitir
-
-O botão principal deve se chamar exatamente **Transmitir**.
-
-Ao clicar em **Transmitir**, o app deve:
-
-1. coletar os dados atuais da tela;
-2. validar os dados;
-3. gerar automaticamente o PDF único de lote;
-4. executar a opção selecionada.
-
-Opções abaixo de **Transmitir**:
-
-- **Enviar por email**: opção default;
-- **Salvar no PC**;
-- **Impressora da rede**.
-
-Quando **Salvar no PC** estiver selecionado, o comportamento deve ser simples: abrir o diálogo nativo do sistema para escolher onde salvar o PDF.
-
-## Execução durante desenvolvimento
-
-Durante o desenvolvimento, o app deve rodar sem empacotamento final.
-
-Comandos esperados, conforme configuração do projeto:
+Baixe ou clone este repositório e, dentro da pasta do projeto, execute:
 
 ```bash
 npm install
-npm run dev
 ```
 
-ou:
+## Executar em modo desenvolvimento
 
 ```bash
 npm start
 ```
 
-Não gerar `.exe`, instalador, pacote ou build final sem comando explícito do proprietário do projeto.
+Também é possível usar:
 
-## Regras funcionais essenciais
+```bash
+npm run dev
+```
 
-- Cada prescrição contém apenas uma medicação.
-- Cada prescrição representa apenas um mês.
-- O número de meses determina quantas páginas/cópias da prescrição serão geradas.
-- A quantidade mensal é `comprimidos por dia × 30`.
-- O número de meses não multiplica a quantidade mensal.
-- Frações simples como `1/2` devem ser aceitas.
-- `-`, vazio e `0` equivalem a zero.
-- Texto inválido em horário deve bloquear a geração da prescrição.
-- Nome do paciente, medicação e dados carimbados na prescrição/tabela devem estar em caixa alta.
-- A evolução deve usar rótulos com hashtag e não pode ser cortada silenciosamente.
+Não é necessário gerar `.exe` para usar esta versão.
 
-## Segurança
+## Testes
 
-- Não versionar PDFs gerados, `.env`, tokens, credenciais ou logs sensíveis.
-- Não armazenar senha de Gmail.
-- Não usar dados reais de pacientes em testes, screenshots ou documentação.
-- Não enviar e-mail real em testes automatizados.
-- Não imprimir documentos reais em testes automatizados.
-- Não modificar `backup_original/`.
+```bash
+npm test
+```
 
-## Documentação principal
+Os testes automatizados não enviam e-mail real e não imprimem documentos reais.
 
-- `AGENTS2.md`: especificação técnica para a LLM/agente que fará a reimplementação em Electron.
-- `README2.md`: visão geral operacional da futura versão Electron.
-- `backup_original/`: referências originais preservadas.
+## Como usar
 
-## GitHub
+1. Abra o aplicativo com `npm start`.
+2. Preencha apenas os campos que deseja carimbar no PDF.
+3. Ajuste o campo de meses/cópias da prescrição, se necessário.
+4. Escolha a saída:
+   - **Enviar por email**;
+   - **Salvar no PC**;
+   - **Impressora da rede**.
+5. Clique em **Transmitir**.
 
-O projeto será colocado no GitHub manualmente pelo proprietário depois da preparação local.
+O botão **Transmitir** sempre gera um lote PDF atualizado a partir dos dados atuais antes de executar a ação escolhida.
 
-A LLM/agente não deve tentar criar repositório remoto, fazer push, criar releases ou publicar instaladores sem pedido explícito.
+Nenhum campo de identificação, evolução ou medicação é obrigatório. Campos vazios são omitidos no PDF.
+
+## Configurar envio por Gmail
+
+O app usa OAuth do Google. Ele não armazena senha de Gmail.
+
+### 1. Criar credenciais no Google Cloud
+
+No Google Cloud Console:
+
+1. Crie ou selecione um projeto.
+2. Habilite a **Gmail API**.
+3. Configure a tela de consentimento OAuth.
+4. Crie um cliente OAuth do tipo **Aplicativo para computador**.
+5. Baixe o JSON do cliente.
+
+### 2. Criar o arquivo local de credenciais
+
+Copie o arquivo de exemplo:
+
+```bash
+cp oauth-client.local.example.json oauth-client.local.json
+```
+
+No Windows PowerShell:
+
+```powershell
+Copy-Item oauth-client.local.example.json oauth-client.local.json
+```
+
+Depois edite `oauth-client.local.json` e substitua os placeholders pelo `client_id` e `client_secret` do seu cliente OAuth.
+
+O app aceita o formato exportado pelo Google:
+
+```json
+{
+  "installed": {
+    "client_id": "SEU_CLIENT_ID.apps.googleusercontent.com",
+    "client_secret": "SEU_CLIENT_SECRET"
+  }
+}
+```
+
+Também aceita o formato simples:
+
+```json
+{
+  "client_id": "SEU_CLIENT_ID.apps.googleusercontent.com",
+  "client_secret": "SEU_CLIENT_SECRET"
+}
+```
+
+`oauth-client.local.json` é ignorado pelo Git e não deve ser publicado.
+
+### 3. Conectar no aplicativo
+
+1. Abra o app.
+2. Clique na engrenagem ao lado de **Enviar por email**.
+3. Informe o e-mail de destino.
+4. Clique em **Conectar Gmail**.
+5. Autorize no navegador.
+6. Use **Enviar teste** antes do primeiro lote real.
+
+Os tokens OAuth são armazenados usando o armazenamento seguro do Electron quando disponível.
+
+## Estrutura principal
+
+```text
+src/
+  config/        Configurações locais e armazenamento seguro.
+  documents/     Geração e carimbo dos PDFs.
+  domain/        Regras de dose, validação e nomes de arquivo.
+  main/          Processo principal Electron e IPC.
+  preload/       API segura exposta ao renderer.
+  renderer/      Interface HTML/CSS/JS.
+  transmission/  Salvamento, impressão e Gmail.
+templates/       PDFs e coordenadas usadas na geração.
+assets/ui/       Imagens de referência visual.
+tests/           Testes automatizados.
+```
+
+## Segurança e privacidade
+
+- Não publique `oauth-client.local.json`.
+- Não publique tokens, `.env`, logs, PDFs gerados ou dados reais de pacientes.
+- Não use dados reais em testes, screenshots ou issues públicas.
+- O assunto do e-mail não contém dados clínicos.
+- O app não deve registrar dados clínicos em logs.
+
+Arquivos sensíveis e saídas locais já estão protegidos no `.gitignore`.
+
+## Observações clínicas e legais
+
+Este software apenas auxilia na geração local de documentos em PDF. A responsabilidade por conferência, impressão, assinatura, guarda e envio dos documentos é do profissional/serviço que opera o sistema.

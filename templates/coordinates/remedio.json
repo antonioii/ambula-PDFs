@@ -1,0 +1,140 @@
+{
+  "project_name": "remedio",
+  "pdf_path": "templates/remedio.pdf",
+  "created_at": "2026-06-21T22:45:37",
+  "updated_at": "2026-06-21T22:51:06",
+  "coordinate_system": "PyMuPDF PDF points",
+  "page_index_base": 0,
+  "points": {
+    "primeira_letra_nome_paciente": {
+      "page": 0,
+      "page_label": 1,
+      "x": 105.33,
+      "y": 140.0
+    },
+    "ultima_letra_nome_paciente": {
+      "page": 0,
+      "page_label": 1,
+      "x": 385.33,
+      "y": 140.0
+    },
+    "primeira_letra_nome_paciente_copia": {
+      "page": 0,
+      "page_label": 1,
+      "x": 520.67,
+      "y": 139.33
+    },
+    "ultima_letra_nome_paciente_copia": {
+      "page": 0,
+      "page_label": 1,
+      "x": 800.67,
+      "y": 139.33
+    },
+    "primeira_letra_remedio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 118.67,
+      "y": 183.33
+    },
+    "ultima_letra_remedio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 282.67,
+      "y": 183.33
+    },
+    "primeira_letra_remedio_copia": {
+      "page": 0,
+      "page_label": 1,
+      "x": 532.67,
+      "y": 181.33
+    },
+    "ultima_letra_remedio_copia": {
+      "page": 0,
+      "page_label": 1,
+      "x": 697.33,
+      "y": 181.33
+    },
+    "letra_inicial_tipo_de_uso": {
+      "page": 0,
+      "page_label": 1,
+      "x": 343.33,
+      "y": 184.0
+    },
+    "letra_final_tipo_de_uso": {
+      "page": 0,
+      "page_label": 1,
+      "x": 399.33,
+      "y": 184.0
+    },
+    "letra_inicial_tipo_de_uso_copia": {
+      "page": 0,
+      "page_label": 1,
+      "x": 752.0,
+      "y": 182.67
+    },
+    "letra_final_tipo_de_uso_copia": {
+      "page": 0,
+      "page_label": 1,
+      "x": 819.33,
+      "y": 182.67
+    },
+    "letra_inicial_comprimidos_por_dia": {
+      "page": 0,
+      "page_label": 1,
+      "x": 72.67,
+      "y": 205.33
+    },
+    "letra_final_comprimidos_por_dia": {
+      "page": 0,
+      "page_label": 1,
+      "x": 96.67,
+      "y": 205.33
+    },
+    "letra_inicial_comprimidos_por_dia_copia": {
+      "page": 0,
+      "page_label": 1,
+      "x": 489.33,
+      "y": 205.33
+    },
+    "letra_final_comprimidos_por_dia_copia": {
+      "page": 0,
+      "page_label": 1,
+      "x": 512.67,
+      "y": 205.33
+    },
+    "letra_inicial_quantidade_por_mes": {
+      "page": 0,
+      "page_label": 1,
+      "x": 274.67,
+      "y": 207.33
+    },
+    "letra_final_quantidade_por_mes": {
+      "page": 0,
+      "page_label": 1,
+      "x": 307.33,
+      "y": 207.33
+    },
+    "letra_inicial_quantidade_por_mes_copia": {
+      "page": 0,
+      "page_label": 1,
+      "x": 686.0,
+      "y": 206.67
+    },
+    "letra_final_quantidade_por_mes_copia": {
+      "page": 0,
+      "page_label": 1,
+      "x": 717.33,
+      "y": 206.67
+    }
+  },
+  "pdf_metadata": {
+    "page_count": 1,
+    "page_sizes": [
+      {
+        "page": 0,
+        "width": 841.92,
+        "height": 595.32
+      }
+    ]
+  }
+}

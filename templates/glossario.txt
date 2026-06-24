@@ -1,0 +1,245 @@
+GLOSSÁRIO DE COORDENADAS
+
+remedio.json
+
+primeira_letra_nome_paciente: início horizontal do campo de nome do paciente na primeira via.
+ultima_letra_nome_paciente: fim horizontal do campo de nome do paciente na primeira via.
+primeira_letra_nome_paciente_copia: início horizontal do campo de nome do paciente na segunda via.
+ultima_letra_nome_paciente_copia: fim horizontal do campo de nome do paciente na segunda via.
+letra_inicial_tipo_de_uso: início horizontal do campo de tipo de administração da medicação na primeira via.
+letra_final_tipo_de_uso: fim horizontal do campo de tipo de administração da medicação na primeira via.
+letra_inicial_tipo_de_uso_copia: início horizontal do campo de tipo de administração da medicação na segunda via.
+letra_final_tipo_de_uso_copia: fim horizontal do campo de tipo de administração da medicação na segunda via.
+primeira_letra_remedio: início horizontal do campo de nome da medicação na primeira via.
+ultima_letra_remedio: fim horizontal do campo de nome da medicação na primeira via.
+primeira_letra_remedio_copia: início horizontal do campo de nome da medicação na segunda via.
+ultima_letra_remedio_copia: fim horizontal do campo de nome da medicação na segunda via.
+letra_inicial_quantidade_de_medicacao: início horizontal da quantidade de medicação entre parênteses na primeira via.
+letra_final_quantidade_de_medicacao: fim horizontal da quantidade de medicação entre parênteses na primeira via.
+letra_inicial_quantidade_de_medicacao_copia: início horizontal da quantidade de medicação entre parênteses na segunda via.
+letra_final_quantidade_de_medicacao_copia: fim horizontal da quantidade de medicação entre parênteses na segunda via.
+letra_inicial_quantidade_diaria: início horizontal do campo de quantidade diária da medicação na primeira via.
+letra_final_quantidade_diaria: fim horizontal do campo de quantidade diária da medicação na primeira via.
+letra_inicial_quantidade_diaria_copia: início horizontal do campo de quantidade diária da medicação na segunda via.
+letra_final_quantidade_diaria_copia: fim horizontal do campo de quantidade diária da medicação na segunda via.
+
+
+ficha_evolucao_coordinates.json
+
+primeiro_digito_data: início horizontal do campo de data da evolução do prontuário.
+ultimo_digito_data: fim horizontal do campo de data da evolução do prontuário.
+linha1_inicio: início da linha 1 destinada ao texto de evolução do prontuário.
+linha1_final: fim da linha 1 destinada ao texto de evolução do prontuário.
+linha2_inicio: início da linha 2 destinada ao texto de evolução do prontuário.
+linha2_final: fim da linha 2 destinada ao texto de evolução do prontuário.
+linha3_inicio: início da linha 3 destinada ao texto de evolução do prontuário.
+linha3_final: fim da linha 3 destinada ao texto de evolução do prontuário.
+linha4_inicio: início da linha 4 destinada ao texto de evolução do prontuário.
+linha4_final: fim da linha 4 destinada ao texto de evolução do prontuário.
+linha5_inicio: início da linha 5 destinada ao texto de evolução do prontuário.
+linha5_final: fim da linha 5 destinada ao texto de evolução do prontuário.
+linha6_inicio: início da linha 6 destinada ao texto de evolução do prontuário.
+linha6_final: fim da linha 6 destinada ao texto de evolução do prontuário.
+linha7_inicio: início da linha 7 destinada ao texto de evolução do prontuário.
+linha7_final: fim da linha 7 destinada ao texto de evolução do prontuário.
+linha8_inicio: início da linha 8 destinada ao texto de evolução do prontuário.
+linha8_final: fim da linha 8 destinada ao texto de evolução do prontuário.
+linha9_inicio: início da linha 9 destinada ao texto de evolução do prontuário.
+linha9_final: fim da linha 9 destinada ao texto de evolução do prontuário.
+linha10_inicio: início da linha 10 destinada ao texto de evolução do prontuário.
+linha10_final: fim da linha 10 destinada ao texto de evolução do prontuário.
+linha11_inicio: início da linha 11 destinada ao texto de evolução do prontuário.
+linha11_final: fim da linha 11 destinada ao texto de evolução do prontuário.
+linha12_inicio: início da linha 12 destinada ao texto de evolução do prontuário.
+linha12_final: fim da linha 12 destinada ao texto de evolução do prontuário.
+linha13_inicio: início da linha 13 destinada ao texto de evolução do prontuário.
+linha13_final: fim da linha 13 destinada ao texto de evolução do prontuário.
+linha14_inicio: início da linha 14 destinada ao texto de evolução do prontuário.
+linha14_final: fim da linha 14 destinada ao texto de evolução do prontuário.
+linha15_inicio: início da linha 15 destinada ao texto de evolução do prontuário.
+linha15_final: fim da linha 15 destinada ao texto de evolução do prontuário.
+linha16_inicio: início da linha 16 destinada ao texto de evolução do prontuário.
+linha16_final: fim da linha 16 destinada ao texto de evolução do prontuário.
+linha17_inicio: início da linha 17 destinada ao texto de evolução do prontuário.
+linha17_final: fim da linha 17 destinada ao texto de evolução do prontuário.
+linha18_inicio: início da linha 18 destinada ao texto de evolução do prontuário.
+linha18_final: fim da linha 18 destinada ao texto de evolução do prontuário.
+linha19_inicio: início da linha 19 destinada ao texto de evolução do prontuário.
+linha19_final: fim da linha 19 destinada ao texto de evolução do prontuário.
+linha20_inicio: início da linha 20 destinada ao texto de evolução do prontuário.
+linha20_final: fim da linha 20 destinada ao texto de evolução do prontuário.
+linha21_inicio: início da linha 21 destinada ao texto de evolução do prontuário.
+linha21_final: fim da linha 21 destinada ao texto de evolução do prontuário.
+linha22_inicio: início da linha 22 destinada ao texto de evolução do prontuário.
+linha22_final: fim da linha 22 destinada ao texto de evolução do prontuário.
+linha23_inicio: início da linha 23 destinada ao texto de evolução do prontuário.
+linha23_final: fim da linha 23 destinada ao texto de evolução do prontuário.
+linha24_inicio: início da linha 24 destinada ao texto de evolução do prontuário.
+linha24_final: fim da linha 24 destinada ao texto de evolução do prontuário.
+linha25_inicio: início da linha 25 destinada ao texto de evolução do prontuário.
+linha25_final: fim da linha 25 destinada ao texto de evolução do prontuário.
+linha26_inicio: início da linha 26 destinada ao texto de evolução do prontuário.
+linha26_final: fim da linha 26 destinada ao texto de evolução do prontuário.
+linha27_inicio: início da linha 27 destinada ao texto de evolução do prontuário.
+linha27_final: fim da linha 27 destinada ao texto de evolução do prontuário.
+linha28_inicio: início da linha 28 destinada ao texto de evolução do prontuário.
+linha28_final: fim da linha 28 destinada ao texto de evolução do prontuário.
+linha29_inicio: início da linha 29 destinada ao texto de evolução do prontuário.
+linha29_final: fim da linha 29 destinada ao texto de evolução do prontuário.
+linha30_inicio: início da linha 30 destinada ao texto de evolução do prontuário.
+linha30_final: fim da linha 30 destinada ao texto de evolução do prontuário.
+linha31_inicio: início da linha 31 destinada ao texto de evolução do prontuário.
+linha31_final: fim da linha 31 destinada ao texto de evolução do prontuário.
+linha32_inicio: início extrapolado da linha 32, após a última célula física da evolução do prontuário.
+linha32_final: fim extrapolado da linha 32, após a última célula física da evolução do prontuário.
+
+tabela_organizar_remedios.json
+
+primeira_letra_nome_da_pessoa: início horizontal do campo de nome da pessoa.
+ultima_letra_nome_da_pessoa: fim horizontal do campo de nome da pessoa.
+primeiro_digito_data: início horizontal do campo de data da tabela de medicamentos.
+ultimo_digito_data: fim horizontal do campo de data da tabela de medicamentos.
+primeira_linha_primeira_letra_remedio: início do nome do medicamento na linha 1.
+primeira_linha_ultima_letra_remedio: fim do nome do medicamento na linha 1.
+linha1_posologia_cafe: posição da quantidade do medicamento da linha 1 no café.
+linha1_posologia_almoço: posição da quantidade do medicamento da linha 1 no almoço.
+linha1_posologia_lanche: posição da quantidade do medicamento da linha 1 no lanche.
+linha1_posologia_jantar: posição da quantidade do medicamento da linha 1 no jantar.
+linha1_posologia_dormir: posição da quantidade do medicamento da linha 1 ao dormir.
+segunda_linha_primeira_letra_remedio: início do nome do medicamento na linha 2.
+segunda_linha_ultima_letra_remedio: fim do nome do medicamento na linha 2.
+linha2_posologia_cafe: posição da quantidade do medicamento da linha 2 no café.
+linha2_posologia_almoço: posição da quantidade do medicamento da linha 2 no almoço.
+linha2_posologia_lanche: posição da quantidade do medicamento da linha 2 no lanche.
+linha2_posologia_jantar: posição da quantidade do medicamento da linha 2 no jantar.
+linha2_posologia_dormir: posição da quantidade do medicamento da linha 2 ao dormir.
+terceira_linha_primeira_letra_remedio: início do nome do medicamento na linha 3.
+terceira_linha_ultima_letra_remedio: fim do nome do medicamento na linha 3.
+linha3_posologia_cafe: posição da quantidade do medicamento da linha 3 no café.
+linha3_posologia_almoço: posição da quantidade do medicamento da linha 3 no almoço.
+linha3_posologia_lanche: posição da quantidade do medicamento da linha 3 no lanche.
+linha3_posologia_jantar: posição da quantidade do medicamento da linha 3 no jantar.
+linha3_posologia_dormir: posição da quantidade do medicamento da linha 3 ao dormir.
+quarta_linha_primeira_letra_remedio: início do nome do medicamento na linha 4.
+quarta_linha_ultima_letra_remedio: fim do nome do medicamento na linha 4.
+linha4_posologia_cafe: posição da quantidade do medicamento da linha 4 no café.
+linha4_posologia_almoço: posição da quantidade do medicamento da linha 4 no almoço.
+linha4_posologia_lanche: posição da quantidade do medicamento da linha 4 no lanche.
+linha4_posologia_jantar: posição da quantidade do medicamento da linha 4 no jantar.
+linha4_posologia_dormir: posição da quantidade do medicamento da linha 4 ao dormir.
+quinta_linha_primeira_letra_remedio: início do nome do medicamento na linha 5.
+quinta_linha_ultima_letra_remedio: fim do nome do medicamento na linha 5.
+linha5_posologia_cafe: posição da quantidade do medicamento da linha 5 no café.
+linha5_posologia_almoço: posição da quantidade do medicamento da linha 5 no almoço.
+linha5_posologia_lanche: posição da quantidade do medicamento da linha 5 no lanche.
+linha5_posologia_jantar: posição da quantidade do medicamento da linha 5 no jantar.
+linha5_posologia_dormir: posição da quantidade do medicamento da linha 5 ao dormir.
+sexta_linha_primeira_letra_remedio: início do nome do medicamento na linha 6.
+sexta_linha_ultima_letra_remedio: fim do nome do medicamento na linha 6.
+linha6_posologia_cafe: posição da quantidade do medicamento da linha 6 no café.
+linha6_posologia_almoço: posição da quantidade do medicamento da linha 6 no almoço.
+linha6_posologia_lanche: posição da quantidade do medicamento da linha 6 no lanche.
+linha6_posologia_jantar: posição da quantidade do medicamento da linha 6 no jantar.
+linha6_posologia_dormir: posição da quantidade do medicamento da linha 6 ao dormir.
+setima_linha_primeira_letra_remedio: início do nome do medicamento na linha 7.
+setima_linha_ultima_letra_remedio: fim do nome do medicamento na linha 7.
+linha7_posologia_cafe: posição da quantidade do medicamento da linha 7 no café.
+linha7_posologia_almoço: posição da quantidade do medicamento da linha 7 no almoço.
+linha7_posologia_lanche: posição da quantidade do medicamento da linha 7 no lanche.
+linha7_posologia_jantar: posição da quantidade do medicamento da linha 7 no jantar.
+linha7_posologia_dormir: posição da quantidade do medicamento da linha 7 ao dormir.
+oitava_linha_primeira_letra_remedio: início do nome do medicamento na linha 8.
+oitava_linha_ultima_letra_remedio: fim do nome do medicamento na linha 8.
+linha8_posologia_cafe: posição da quantidade do medicamento da linha 8 no café.
+linha8_posologia_almoço: posição da quantidade do medicamento da linha 8 no almoço.
+linha8_posologia_lanche: posição da quantidade do medicamento da linha 8 no lanche.
+linha8_posologia_jantar: posição da quantidade do medicamento da linha 8 no jantar.
+linha8_posologia_dormir: posição da quantidade do medicamento da linha 8 ao dormir.
+nona_linha_primeira_letra_remedio: início do nome do medicamento na linha 9.
+nona_linha_ultima_letra_remedio: fim do nome do medicamento na linha 9.
+linha9_posologia_cafe: posição da quantidade do medicamento da linha 9 no café.
+linha9_posologia_almoço: posição da quantidade do medicamento da linha 9 no almoço.
+linha9_posologia_lanche: posição da quantidade do medicamento da linha 9 no lanche.
+linha9_posologia_jantar: posição da quantidade do medicamento da linha 9 no jantar.
+linha9_posologia_dormir: posição da quantidade do medicamento da linha 9 ao dormir.
+decima_linha_primeira_letra_remedio: início do nome do medicamento na linha 10.
+decima_linha_ultima_letra_remedio: fim do nome do medicamento na linha 10.
+linha10_posologia_cafe: posição da quantidade do medicamento da linha 10 no café.
+linha10_posologia_almoço: posição da quantidade do medicamento da linha 10 no almoço.
+linha10_posologia_lanche: posição da quantidade do medicamento da linha 10 no lanche.
+linha10_posologia_jantar: posição da quantidade do medicamento da linha 10 no jantar.
+linha10_posologia_dormir: posição da quantidade do medicamento da linha 10 ao dormir.
+nome_copia_inicio: início horizontal do campo de nome da pessoa na tabela inferior.
+nome_copia_final: fim horizontal do campo de nome da pessoa na tabela inferior.
+data_copia_inicio: início horizontal do campo de data na tabela inferior.
+data_copia_final: fim horizontal do campo de data na tabela inferior.
+linha1_copia_inicio: início do nome do medicamento na linha 1 da tabela inferior.
+linha1_copia_final: fim do nome do medicamento na linha 1 da tabela inferior.
+linha1_posologia_cafe_copia: posição da quantidade do medicamento da linha 1 no café, na tabela inferior.
+linha1_posologia_almoço_copia: posição da quantidade do medicamento da linha 1 no almoço, na tabela inferior.
+linha1_posologia_lanche_copia: posição da quantidade do medicamento da linha 1 no lanche, na tabela inferior.
+linha1_posologia_jantar_copia: posição da quantidade do medicamento da linha 1 no jantar, na tabela inferior.
+linha1_posologia_dormir_copia: posição da quantidade do medicamento da linha 1 ao dormir, na tabela inferior.
+linha2_copia_inicio: início do nome do medicamento na linha 2 da tabela inferior.
+linha2_copia_final: fim do nome do medicamento na linha 2 da tabela inferior.
+linha2_posologia_cafe_copia: posição da quantidade do medicamento da linha 2 no café, na tabela inferior.
+linha2_posologia_almoço_copia: posição da quantidade do medicamento da linha 2 no almoço, na tabela inferior.
+linha2_posologia_lanche_copia: posição da quantidade do medicamento da linha 2 no lanche, na tabela inferior.
+linha2_posologia_jantar_copia: posição da quantidade do medicamento da linha 2 no jantar, na tabela inferior.
+linha2_posologia_dormir_copia: posição da quantidade do medicamento da linha 2 ao dormir, na tabela inferior.
+linha3_copia_inicio: início do nome do medicamento na linha 3 da tabela inferior.
+linha3_copia_final: fim do nome do medicamento na linha 3 da tabela inferior.
+linha3_posologia_cafe_copia: posição da quantidade do medicamento da linha 3 no café, na tabela inferior.
+linha3_posologia_almoço_copia: posição da quantidade do medicamento da linha 3 no almoço, na tabela inferior.
+linha3_posologia_lanche_copia: posição da quantidade do medicamento da linha 3 no lanche, na tabela inferior.
+linha3_posologia_jantar_copia: posição da quantidade do medicamento da linha 3 no jantar, na tabela inferior.
+linha3_posologia_dormir_copia: posição da quantidade do medicamento da linha 3 ao dormir, na tabela inferior.
+linha4_copia_inicio: início do nome do medicamento na linha 4 da tabela inferior.
+linha4_copia_final: fim do nome do medicamento na linha 4 da tabela inferior.
+linha4_posologia_cafe_copia: posição da quantidade do medicamento da linha 4 no café, na tabela inferior.
+linha4_posologia_almoço_copia: posição da quantidade do medicamento da linha 4 no almoço, na tabela inferior.
+linha4_posologia_lanche_copia: posição da quantidade do medicamento da linha 4 no lanche, na tabela inferior.
+linha4_posologia_jantar_copia: posição da quantidade do medicamento da linha 4 no jantar, na tabela inferior.
+linha4_posologia_dormir_copia: posição da quantidade do medicamento da linha 4 ao dormir, na tabela inferior.
+linha5_copia_inicio: início do nome do medicamento na linha 5 da tabela inferior.
+linha5_copia_final: fim do nome do medicamento na linha 5 da tabela inferior.
+linha5_posologia_cafe_copia: posição da quantidade do medicamento da linha 5 no café, na tabela inferior.
+linha5_posologia_almoço_copia: posição da quantidade do medicamento da linha 5 no almoço, na tabela inferior.
+linha5_posologia_lanche_copia: posição da quantidade do medicamento da linha 5 no lanche, na tabela inferior.
+linha5_posologia_jantar_copia: posição da quantidade do medicamento da linha 5 no jantar, na tabela inferior.
+linha5_posologia_dormir_copia: posição da quantidade do medicamento da linha 5 ao dormir, na tabela inferior.
+linha6_copia_inicio: início do nome do medicamento na linha 6 da tabela inferior.
+linha6_copia_final: fim do nome do medicamento na linha 6 da tabela inferior.
+linha6_posologia_cafe_copia: posição da quantidade do medicamento da linha 6 no café, na tabela inferior.
+linha6_posologia_almoço_copia: posição da quantidade do medicamento da linha 6 no almoço, na tabela inferior.
+linha6_posologia_lanche_copia: posição da quantidade do medicamento da linha 6 no lanche, na tabela inferior.
+linha6_posologia_jantar_copia: posição da quantidade do medicamento da linha 6 no jantar, na tabela inferior.
+linha6_posologia_dormir_copia: posição da quantidade do medicamento da linha 6 ao dormir, na tabela inferior.
+linha7_copia_inicio: início do nome do medicamento na linha 7 da tabela inferior.
+linha7_copia_final: fim do nome do medicamento na linha 7 da tabela inferior.
+linha7_posologia_cafe_copia: posição da quantidade do medicamento da linha 7 no café, na tabela inferior.
+linha7_posologia_almoço_copia: posição da quantidade do medicamento da linha 7 no almoço, na tabela inferior.
+linha7_posologia_lanche_copia: posição da quantidade do medicamento da linha 7 no lanche, na tabela inferior.
+linha7_posologia_jantar_copia: posição da quantidade do medicamento da linha 7 no jantar, na tabela inferior.
+linha7_posologia_dormir_copia: posição da quantidade do medicamento da linha 7 ao dormir, na tabela inferior.
+linha8_copia_inicio: início do nome do medicamento na linha 8 da tabela inferior.
+linha8_copia_final: fim do nome do medicamento na linha 8 da tabela inferior.
+linha8_posologia_cafe_copia: posição da quantidade do medicamento da linha 8 no café, na tabela inferior.
+linha8_posologia_almoço_copia: posição da quantidade do medicamento da linha 8 no almoço, na tabela inferior.
+linha8_posologia_lanche_copia: posição da quantidade do medicamento da linha 8 no lanche, na tabela inferior.
+linha8_posologia_jantar_copia: posição da quantidade do medicamento da linha 8 no jantar, na tabela inferior.
+linha8_posologia_dormir_copia: posição da quantidade do medicamento da linha 8 ao dormir, na tabela inferior.
+linha9_copia_inicio: início do nome do medicamento na linha 9 da tabela inferior.
+linha9_copia_final: fim do nome do medicamento na linha 9 da tabela inferior.
+linha9_posologia_cafe_copia: posição da quantidade do medicamento da linha 9 no café, na tabela inferior.
+linha9_posologia_almoço_copia: posição da quantidade do medicamento da linha 9 no almoço, na tabela inferior.
+linha9_posologia_lanche_copia: posição da quantidade do medicamento da linha 9 no lanche, na tabela inferior.
+linha9_posologia_jantar_copia: posição da quantidade do medicamento da linha 9 no jantar, na tabela inferior.
+linha9_posologia_dormir_copia: posição da quantidade do medicamento da linha 9 ao dormir, na tabela inferior.
+linha10_copia_inicio: início do nome do medicamento na linha 10 da tabela inferior.
+linha10_copia_final: fim do nome do medicamento na linha 10 da tabela inferior.
+linha10_posologia_cafe_copia: posição da quantidade do medicamento da linha 10 no café, na tabela inferior.
+linha10_posologia_almoço_copia: posição da quantidade do medicamento da linha 10 no almoço, na tabela inferior.
+linha10_posologia_lanche_copia: posição da quantidade do medicamento da linha 10 no lanche, na tabela inferior.
+linha10_posologia_jantar_copia: posição da quantidade do medicamento da linha 10 no jantar, na tabela inferior.
+linha10_posologia_dormir_copia: posição da quantidade do medicamento da linha 10 ao dormir, na tabela inferior.

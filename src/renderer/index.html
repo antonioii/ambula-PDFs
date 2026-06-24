@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data:;"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerador Ambulatorial</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Ambulatório</p>
+        <h1>Gerador de documentos • Atendimento Ambulatorial</h1>
+      </div>
+    </header>
+
+    <main class="layout">
+      <form id="main-form" class="workspace">
+        <section class="card">
+          <div class="section-title">
+            <div>
+              <span class="step">01</span>
+              <h2>Identificação do paciente</h2>
+            </div>
+          </div>
+          <div class="form-grid patient-grid">
+            <label class="span-2">
+              Nome do paciente
+              <input id="patient-name" maxlength="160" autocomplete="off" />
+            </label>
+            <label>
+              Data de nascimento
+              <input id="birth-date" type="date" />
+            </label>
+            <label>
+              Prontuário
+              <input id="record-number" maxlength="50" autocomplete="off" />
+            </label>
+            <label>
+              Data do atendimento
+              <input id="appointment-date" type="date" />
+            </label>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="section-title">
+            <div>
+              <span class="step">02</span>
+              <h2>Evolução</h2>
+            </div>
+            <span class="hint">A capacidade final é validada pelas linhas do template.</span>
+          </div>
+          <label>
+            Entrevista/HDA
+            <textarea id="interview" rows="7" maxlength="3500"></textarea>
+            <span id="interview-counter" class="counter">0 / 3500 caracteres</span>
+          </label>
+          <div class="form-grid evolution-grid">
+            <label>HPP <textarea id="hpp" rows="2"></textarea></label>
+            <label>HFAM <textarea id="hfam" rows="2"></textarea></label>
+            <label>Súmula <textarea id="summary" rows="3"></textarea></label>
+            <label>Impressão <textarea id="impression" rows="3"></textarea></label>
+            <label class="span-2">Conduta <textarea id="conduct" rows="4"></textarea></label>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="section-title">
+            <div>
+              <span class="step">03</span>
+              <h2>Medicações</h2>
+            </div>
+            <span class="hint">10 posições fixas · role para ver 6–10</span>
+          </div>
+          <div class="medication-shell">
+            <div class="medication-header medication-grid" aria-hidden="true">
+              <span>Nº</span><span>Nome / apresentação</span><span>Via</span><span>Tipo</span>
+              <span>Café</span><span>Almoço</span><span>Lanche</span><span>Jantar</span><span>Dormir</span>
+              <span>Qtd. p.mês</span>
+            </div>
+            <div id="medication-rows" class="medication-scroll"></div>
+          </div>
+          <label class="months-field">
+            Meses/cópias da prescrição
+            <input id="months" type="number" min="1" max="24" value="5" />
+            <small>Cada medicação preenchida gera uma receita por mês.</small>
+          </label>
+        </section>
+      </form>
+
+      <aside class="actions card">
+        <p class="eyebrow">Saída</p>
+        <button id="transmit-button" class="primary-button" type="button">Transmitir</button>
+        <div class="output-options" role="radiogroup" aria-label="Forma de transmissão">
+          <label class="radio-line">
+            <input type="radio" name="output-mode" value="email" checked />
+            <span>Enviar por email</span>
+            <button id="email-settings" class="icon-button" type="button" aria-label="Configurar e-mail">⚙</button>
+          </label>
+          <label class="radio-line">
+            <input type="radio" name="output-mode" value="save" />
+            <span>Salvar no PC</span>
+          </label>
+          <label class="radio-line">
+            <input type="radio" name="output-mode" value="printer" />
+            <span>Impressora da rede</span>
+          </label>
+        </div>
+        <div class="divider"></div>
+        <button id="standalone-button" class="secondary-button" type="button">Prescrição avulsa</button>
+        <button id="new-appointment" class="ghost-button" type="button">Novo atendimento</button>
+        <div id="status" class="status" role="status" aria-live="polite">
+          Preencha o atendimento e escolha a saída.
+        </div>
+      </aside>
+    </main>
+
+    <dialog id="standalone-dialog">
+      <form method="dialog" class="dialog-card">
+        <div class="dialog-title">
+          <div>
+            <p class="eyebrow">Documento separado</p>
+            <h2>Prescrição avulsa</h2>
+          </div>
+          <button class="icon-button" value="cancel" aria-label="Fechar">×</button>
+        </div>
+        <p class="dialog-copy">Gera somente a tabela de medicações e as receitas. A evolução não será incluída.</p>
+        <div class="medication-shell">
+          <div class="medication-header medication-grid" aria-hidden="true">
+            <span>Nº</span><span>Nome / apresentação</span><span>Via</span><span>Tipo</span>
+            <span>Café</span><span>Almoço</span><span>Lanche</span><span>Jantar</span><span>Dormir</span>
+            <span>Qtd. p.mês</span>
+          </div>
+          <div id="standalone-medication-rows" class="medication-scroll"></div>
+        </div>
+        <label class="months-field">
+          Meses/cópias da prescrição
+          <input id="standalone-months" type="number" min="1" max="24" value="5" />
+        </label>
+        <div class="dialog-actions">
+          <button class="ghost-button" value="cancel">Cancelar</button>
+          <button id="standalone-transmit" class="primary-button" type="button">Transmitir</button>
+        </div>
+        <div id="standalone-status" class="status" role="status" aria-live="polite">
+          A forma de saída selecionada na tela principal será utilizada.
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="injection-dialog" class="compact-dialog">
+      <form class="dialog-card">
+        <div class="dialog-title">
+          <div>
+            <p class="eyebrow">Posologia injetável</p>
+            <h2>Configurar aplicação</h2>
+          </div>
+          <button id="injection-close" class="icon-button" type="button" aria-label="Fechar">×</button>
+        </div>
+        <label>
+          Quantidade por aplicação
+          <input id="injection-ampoules" type="number" min="1" step="1" value="1" />
+        </label>
+        <label>
+          Período
+          <select id="injection-period">
+            <option value="MENSAL">MENSAL</option>
+            <option value="15/15 DIAS">15/15 dias</option>
+            <option value="28/28 DIAS">28/28 dias</option>
+            <option value="21/21 DIAS">21/21 dias</option>
+          </select>
+        </label>
+        <div class="dialog-actions">
+          <button id="injection-cancel" class="ghost-button" type="button">Cancelar</button>
+          <button id="injection-confirm" class="primary-button" type="button">Aplicar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="email-dialog">
+      <form id="email-form" class="dialog-card compact-dialog">
+        <div class="dialog-title">
+          <div>
+            <p class="eyebrow">Gmail OAuth</p>
+            <h2>Configurações de e-mail</h2>
+          </div>
+          <button id="email-close" class="icon-button" type="button" aria-label="Fechar">×</button>
+        </div>
+        <div id="email-credentials-notice" class="notice">
+          <strong id="email-credentials-title">Verificando credenciais OAuth...</strong>
+          <p id="email-credentials-copy">Aguarde enquanto o aplicativo verifica a configuração local.</p>
+        </div>
+        <div class="email-status-grid">
+          <div>
+            <span>Autenticação</span>
+            <strong id="email-auth-status">Verificando...</strong>
+          </div>
+          <div>
+            <span>Armazenamento seguro</span>
+            <strong id="email-storage-status">Verificando...</strong>
+          </div>
+        </div>
+        <label>
+          E-mail de destino
+          <input id="email-destination" type="email" autocomplete="off" placeholder="destino@exemplo.com" />
+        </label>
+        <div class="email-buttons">
+          <button id="email-connect" class="secondary-button" type="button">Conectar Gmail</button>
+          <button id="email-disconnect" class="ghost-button" type="button">Desconectar</button>
+          <button id="email-save" class="secondary-button" type="button">Salvar configurações</button>
+          <button id="email-test" class="ghost-button" type="button">Enviar teste</button>
+        </div>
+        <div id="email-status" class="status" role="status" aria-live="polite">
+          As credenciais e tokens nunca são exibidos nesta tela.
+        </div>
+        <div class="dialog-actions">
+          <button id="email-close-footer" class="ghost-button" type="button">Fechar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

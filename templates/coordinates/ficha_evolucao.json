@@ -1,0 +1,416 @@
+{
+  "project_name": "ficha_evolucao",
+  "pdf_path": "templates/ficha_evolucao.pdf",
+  "created_at": "2026-06-21T22:30:22",
+  "updated_at": "2026-06-21T23:50:20",
+  "coordinate_system": "PyMuPDF PDF points",
+  "page_index_base": 0,
+  "points": {
+    "primeiro_digito_data": {
+      "page": 0,
+      "page_label": 1,
+      "x": 31.33,
+      "y": 40.0
+    },
+    "ultimo_digito_data": {
+      "page": 0,
+      "page_label": 1,
+      "x": 87.33,
+      "y": 40.0
+    },
+    "linha1_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 42.0
+    },
+    "linha1_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 42.0
+    },
+    "linha2_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 65.28
+    },
+    "linha2_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 65.28
+    },
+    "linha3_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 88.44
+    },
+    "linha3_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 88.44
+    },
+    "linha4_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 111.62
+    },
+    "linha4_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 111.62
+    },
+    "linha5_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 134.9
+    },
+    "linha5_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 134.9
+    },
+    "linha6_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 158.06
+    },
+    "linha6_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 158.06
+    },
+    "linha7_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 181.22
+    },
+    "linha7_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 181.22
+    },
+    "linha8_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 204.5
+    },
+    "linha8_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 204.5
+    },
+    "linha9_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 227.66
+    },
+    "linha9_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 227.66
+    },
+    "linha10_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 250.82
+    },
+    "linha10_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 250.82
+    },
+    "linha11_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 274.1
+    },
+    "linha11_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 274.1
+    },
+    "linha12_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 297.29
+    },
+    "linha12_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 297.29
+    },
+    "linha13_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 320.45
+    },
+    "linha13_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 320.45
+    },
+    "linha14_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 343.73
+    },
+    "linha14_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 343.73
+    },
+    "linha15_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 366.89
+    },
+    "linha15_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 366.89
+    },
+    "linha16_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 390.05
+    },
+    "linha16_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 390.05
+    },
+    "linha17_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 413.33
+    },
+    "linha17_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 413.33
+    },
+    "linha18_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 436.49
+    },
+    "linha18_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 436.49
+    },
+    "linha19_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 459.65
+    },
+    "linha19_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 459.65
+    },
+    "linha20_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 482.95
+    },
+    "linha20_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 482.95
+    },
+    "linha21_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 506.11
+    },
+    "linha21_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 506.11
+    },
+    "linha22_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 529.27
+    },
+    "linha22_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 529.27
+    },
+    "linha23_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 552.55
+    },
+    "linha23_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 552.55
+    },
+    "linha24_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 575.71
+    },
+    "linha24_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 575.71
+    },
+    "linha25_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 598.87
+    },
+    "linha25_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 598.87
+    },
+    "linha26_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 622.15
+    },
+    "linha26_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 622.15
+    },
+    "linha27_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 645.31
+    },
+    "linha27_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 645.31
+    },
+    "linha28_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 668.5
+    },
+    "linha28_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 668.5
+    },
+    "linha29_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 691.78
+    },
+    "linha29_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 691.78
+    },
+    "linha30_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 714.94
+    },
+    "linha30_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 714.94
+    },
+    "linha31_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 738.1
+    },
+    "linha31_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 738.1
+    },
+    "linha32_inicio": {
+      "page": 0,
+      "page_label": 1,
+      "x": 126.0,
+      "y": 761.38
+    },
+    "linha32_final": {
+      "page": 0,
+      "page_label": 1,
+      "x": 536.0,
+      "y": 761.38
+    }
+  },
+  "pdf_metadata": {
+    "page_count": 1,
+    "page_sizes": [
+      {
+        "page": 0,
+        "width": 595.32,
+        "height": 841.92
+      }
+    ]
+  }
+}
