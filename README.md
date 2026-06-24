@@ -1,10 +1,10 @@
 # Gerador Ambulatorial
 
-Aplicativo desktop em **Electron + Node.js** para gerar um lote PDF ambulatorial a partir de templates locais. O lote pode ser salvo no computador, enviado para impressão pelo diálogo do sistema ou enviado por Gmail API/OAuth.
+Aplicativo desktop em **Electron + Node.js** para gerar um lote de arquivos PDF a partir de templates locais (fichas de evolução de prontuario, esquema organizador de medicação e prescrições). O lote pode ser salvo no computador, enviado para impressão pelo diálogo do sistema ou enviado por Gmail API/OAuth.
 
-O sistema é local/offline-first para preenchimento e geração documental. Ele não é prontuário eletrônico completo, não é prescrição eletrônica validada nacionalmente, não faz assinatura digital e não substitui assinatura manual quando exigida.
+O sistema é local/offline-first para preenchimento e geração documental. Ele não é prontuário eletrônico completo, não é prescrição eletrônica validada nacionalmente, não faz assinatura digital e não substitui assinatura manual. Apenas é uma alternativa em locais que necessitam de documentos impressos. Ou seja, esta é uma solução simples que visa basicamente produzir um documento de evolução digitado, uma tabela organizadora de medicação e receitas de prescrição que são combinadas em um único lote de PDF e podem ser salvas localmente, impressas por impressora no sistema ou enviadas por email para local / dispositivos com acesso a impressora.
 
-Esta é uma solução simples que visa basicamente produzir um documento de evolução digitado, uma tabela organizadora de medicação e receitas de prescrição que são combinadas em um único lote de PDF e podem ser salvas localmente, impressas por impressora no sistema ou enviadas por email para local / dispositivos com acesso a impressora.
+Este projeto foi feito com auxílio do CODEX GPT-5.5, Open Code e Big Pickle.
 
 ## Requisitos
 
