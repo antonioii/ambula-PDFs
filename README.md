@@ -4,6 +4,8 @@ Aplicativo desktop em **Electron + Node.js** para gerar um lote PDF ambulatorial
 
 O sistema é local/offline-first para preenchimento e geração documental. Ele não é prontuário eletrônico completo, não é prescrição eletrônica validada nacionalmente, não faz assinatura digital e não substitui assinatura manual quando exigida.
 
+Esta é uma solução simples que visa basicamente produzir um documento de evolução digitado, uma tabela organizadora de medicação e receitas de prescrição que são combinadas em um único lote de PDF e podem ser salvas localmente, impressas por impressora no sistema ou enviadas por email para local / dispositivos com acesso a impressora.
+
 ## Requisitos
 
 - Node.js 20 ou superior.
