@@ -25,7 +25,7 @@ async function createEvolutionPdf(templateBytes, coordinates, data) {
   const font = await pdf.embedFont(StandardFonts.Helvetica);
   const boldFont = await pdf.embedFont(StandardFonts.HelveticaBold);
   const page = pdf.getPage(0);
-  const fontSize = 9;
+  const fontSize = data.evolution.fontSize || 10;
   const maxWidth =
     coordinates.points.linha1_final.x - coordinates.points.linha1_inicio.x - 4;
   const lines = [];

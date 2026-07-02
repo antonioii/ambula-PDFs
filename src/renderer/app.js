@@ -4,8 +4,31 @@ const ROUTES = ['ORAL', 'INJETAVEL IM', 'INALATORIO', 'TOPICO', 'OFTALMICO'];
 const TYPES = ['CP', 'AMP', 'GOTAS', 'ML', 'PUFF', 'CREME'];
 const PERIODS = ['MENSAL', '15/15 DIAS', '28/28 DIAS', '21/21 DIAS'];
 const SCHEDULES = ['breakfast', 'lunch', 'snack', 'dinner', 'bedtime'];
+const UI_ZOOM_MIN = 0.8;
+const UI_ZOOM_MAX = 1.3;
+const UI_ZOOM_STEP = 0.1;
 let activeInjectionRow = null;
 let currentEmailAuthStatus = null;
+let currentUiZoom = 1;
+let emailConnectInProgress = false;
+
+function applyUiZoom(value) {
+  currentUiZoom = Math.min(UI_ZOOM_MAX, Math.max(UI_ZOOM_MIN, Number(value.toFixed(1))));
+  document.body.style.zoom = String(currentUiZoom);
+}
+
+function handleZoomShortcut(event) {
+  if (!event.ctrlKey || event.altKey || event.metaKey) return;
+  if (event.key === '+' || event.key === '=' || event.code === 'NumpadAdd') {
+    event.preventDefault();
+    applyUiZoom(currentUiZoom + UI_ZOOM_STEP);
+    return;
+  }
+  if (event.key === '-' || event.code === 'NumpadSubtract') {
+    event.preventDefault();
+    applyUiZoom(currentUiZoom - UI_ZOOM_STEP);
+  }
+}
 
 function options(values, selected) {
   return values
@@ -154,7 +177,7 @@ function applyRowData(row, data) {
   row.querySelector('[data-field="route"]').value = data.route || 'ORAL';
   row.querySelector('[data-field="type"]').value = data.type || 'CP';
   row.dataset.ampoules = data.ampoules || '';
-  row.dataset.period = data.period || data.breakfast || 'MENSAL';
+  row.dataset.period = data.period || data.breakfast || '';
   row.dataset.monthlyAuto = 'false';
   row._normalSchedules = SCHEDULES.map((field) => data[field] || '');
   setRoute(row, data.route || 'ORAL');
@@ -187,7 +210,8 @@ function mainPayload() {
       hfam: $('#hfam').value,
       summary: $('#summary').value,
       impression: $('#impression').value,
-      conduct: $('#conduct').value
+      conduct: $('#conduct').value,
+      fontSize: $('#evolution-font-size').value
     },
     medications: readRows(mainRows),
     months: $('#months').value
@@ -302,10 +326,12 @@ function setEmailStatus(message, kind = '') {
   status.className = `status ${kind}`.trim();
 }
 
-function setEmailBusy(busy) {
+function setEmailBusy(busy, { cancellable = false } = {}) {
   ['#email-connect', '#email-disconnect', '#email-save', '#email-test'].forEach((selector) => {
     $(selector).disabled = busy;
   });
+  $('#email-cancel-connect').hidden = !cancellable;
+  $('#email-cancel-connect').disabled = !cancellable;
   if (!busy && currentEmailAuthStatus) renderEmailAuthStatus(currentEmailAuthStatus);
 }
 
@@ -354,9 +380,10 @@ $('#email-settings').addEventListener('click', async (event) => {
   await loadEmailConfiguration();
 });
 
-async function runEmailAction(action, pendingMessage, successMessage) {
-  setEmailBusy(true);
+async function runEmailAction(action, pendingMessage, successMessage, options = {}) {
+  setEmailBusy(true, { cancellable: Boolean(options.cancellable) });
   setEmailStatus(pendingMessage);
+  if (options.cancellable) emailConnectInProgress = true;
   try {
     const response = await action();
     if (!response.ok) {
@@ -370,6 +397,7 @@ async function runEmailAction(action, pendingMessage, successMessage) {
     setEmailStatus('Falha inesperada na comunicação com o aplicativo.', 'error');
     return null;
   } finally {
+    if (options.cancellable) emailConnectInProgress = false;
     setEmailBusy(false);
   }
 }
@@ -388,10 +416,17 @@ $('#email-save').addEventListener('click', () =>
 $('#email-connect').addEventListener('click', () =>
   runEmailAction(
     () => window.ambulatorio.email.connect(),
-    'Conclua a autorização no navegador...',
-    'Gmail conectado com sucesso.'
+    'Conclua a autorização no navegador ou cancele a conexão.',
+    'Gmail conectado com sucesso.',
+    { cancellable: true }
   )
 );
+
+$('#email-cancel-connect').addEventListener('click', async () => {
+  $('#email-cancel-connect').disabled = true;
+  setEmailStatus('Cancelando conexão com o Google...');
+  await window.ambulatorio.email.cancelConnect();
+});
 
 $('#email-disconnect').addEventListener('click', () =>
   runEmailAction(
@@ -409,7 +444,8 @@ $('#email-test').addEventListener('click', () =>
   )
 );
 
-function closeEmailDialog() {
+async function closeEmailDialog() {
+  if (emailConnectInProgress) await window.ambulatorio.email.cancelConnect();
   $('#email-dialog').close();
 }
 
@@ -420,14 +456,32 @@ $('#interview').addEventListener('input', (event) => {
   $('#interview-counter').textContent = `${event.target.value.length} / 3500 caracteres`;
 });
 
-$('#new-appointment').addEventListener('click', () => {
-  if (!window.confirm('Limpar todos os campos deste atendimento?')) return;
+function resetAppointment() {
   $('#main-form').reset();
   mainRows.forEach((row) => applyRowData(row, {}));
   $('#months').value = '5';
+  $('#evolution-font-size').value = '10';
   $('#appointment-date').value = new Date().toISOString().slice(0, 10);
   $('#interview-counter').textContent = '0 / 3500 caracteres';
   setStatus('Novo atendimento iniciado.');
+}
+
+function closeNewAppointmentDialog() {
+  $('#new-appointment-dialog').close();
+}
+
+$('#new-appointment').addEventListener('click', () => {
+  $('#new-appointment-dialog').showModal();
 });
+
+$('#new-appointment-confirm').addEventListener('click', () => {
+  resetAppointment();
+  closeNewAppointmentDialog();
+});
+
+$('#new-appointment-cancel').addEventListener('click', closeNewAppointmentDialog);
+$('#new-appointment-close').addEventListener('click', closeNewAppointmentDialog);
+
+window.addEventListener('keydown', handleZoomShortcut);
 
 $('#appointment-date').value = new Date().toISOString().slice(0, 10);

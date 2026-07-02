@@ -115,6 +115,14 @@ ipcMain.handle('email:connect', async () => {
   }
 });
 
+ipcMain.handle('email:cancel-connect', async () => {
+  try {
+    return { ok: true, result: services.gmailAuth.cancelConnect() };
+  } catch (error) {
+    return serializeError(error);
+  }
+});
+
 ipcMain.handle('email:disconnect', async () => {
   try {
     return { ok: true, result: await services.gmailAuth.disconnect() };

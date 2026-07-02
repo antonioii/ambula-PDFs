@@ -65,6 +65,31 @@ test('evolução usa hashtags e omite campos vazios', () => {
   );
 });
 
+test('gera evolução com tamanho de fonte configurado sem alterar os demais documentos', async () => {
+  const files = await fixtureFiles();
+  const payload = validPayload();
+  payload.evolution.fontSize = '14';
+  const data = normalizePayload(payload);
+
+  const evolution = await createEvolutionPdf(
+    files.evolutionTemplate,
+    files.evolutionCoordinates,
+    data
+  );
+  const table = await createMedicationTablePdf(files.tableTemplate, files.tableCoordinates, data);
+  const prescription = await createPrescriptionPdf(
+    files.prescriptionTemplate,
+    files.prescriptionCoordinates,
+    data,
+    data.medications[0]
+  );
+
+  assert.equal(data.evolution.fontSize, 14);
+  assert.equal((await PDFDocument.load(evolution)).getPageCount(), 1);
+  assert.equal((await PDFDocument.load(table)).getPageCount(), 1);
+  assert.equal((await PDFDocument.load(prescription)).getPageCount(), 1);
+});
+
 test('gera lote completo e duplica cada prescrição pelo número de meses', async () => {
   const payload = validPayload();
   payload.months = 3;
@@ -79,6 +104,39 @@ test('gera lote completo e duplica cada prescrição pelo número de meses', asy
   const pdf = await PDFDocument.load(result.bytes);
   assert.equal(result.pageCount, 8);
   assert.equal(pdf.getPageCount(), 8);
+});
+
+test('não gera prescrições para linhas vazias do formulário de medicações', async () => {
+  const payload = validPayload();
+  payload.months = 1;
+  payload.medications = [
+    {
+      name: 'Medicamento 1',
+      route: 'ORAL',
+      type: 'CP',
+      breakfast: '1',
+      monthlyQuantity: '30 CP'
+    },
+    {
+      name: 'Medicamento 2',
+      route: 'ORAL',
+      type: 'CP',
+      dinner: '1',
+      monthlyQuantity: '30 CP'
+    },
+    {
+      name: 'Medicamento 3',
+      route: 'ORAL',
+      type: 'CP',
+      bedtime: '1',
+      monthlyQuantity: '30 CP'
+    },
+    ...Array.from({ length: 7 }, () => ({ route: 'ORAL', type: 'CP', period: 'MENSAL' }))
+  ];
+
+  const result = await generateBatch(payload, { projectRoot });
+  assert.equal(result.pageCount, 5);
+  assert.equal((await PDFDocument.load(result.bytes)).getPageCount(), 5);
 });
 
 test('prescrição avulsa omite evolução', async () => {

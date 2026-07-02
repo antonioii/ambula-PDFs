@@ -7,6 +7,7 @@ const MAX_MONTHS = 24;
 const ROUTES = ['ORAL', 'INJETAVEL IM', 'INALATORIO', 'TOPICO', 'OFTALMICO'];
 const MEDICATION_TYPES = ['CP', 'AMP', 'GOTAS', 'ML', 'PUFF', 'CREME'];
 const INJECTION_PERIODS = ['MENSAL', '15/15 DIAS', '28/28 DIAS', '21/21 DIAS'];
+const EVOLUTION_FONT_SIZES = [8, 9, 10, 11, 12, 13, 14];
 
 function cleanText(value, maxLength = 5000) {
   return String(value ?? '').replace(/\r\n/g, '\n').trim().slice(0, maxLength);
@@ -59,7 +60,7 @@ function normalizePayload(payload = {}, { standalone = false } = {}) {
         medication.type !== 'CP' ||
         medication.monthlyQuantity ||
         medication.ampoules != null ||
-        medication.period
+        (medication.route === 'INJETAVEL IM' && medication.period)
     );
 
   for (const medication of medications) {
@@ -114,14 +115,21 @@ function normalizePayload(payload = {}, { standalone = false } = {}) {
     throw new AppError(`Meses/cópias deve ser um número entre 1 e ${MAX_MONTHS}.`, 'VALIDATION_ERROR');
   }
 
+  const evolutionFontSizeText = cleanText(payload.evolution?.fontSize, 10);
+  const evolutionFontSize = evolutionFontSizeText ? Number(evolutionFontSizeText) : 10;
   const evolution = {
     interview: cleanText(payload.evolution?.interview),
     hpp: cleanText(payload.evolution?.hpp),
     hfam: cleanText(payload.evolution?.hfam),
     summary: cleanText(payload.evolution?.summary),
     impression: cleanText(payload.evolution?.impression),
-    conduct: cleanText(payload.evolution?.conduct)
+    conduct: cleanText(payload.evolution?.conduct),
+    fontSize: evolutionFontSize
   };
+
+  if (!Number.isInteger(evolution.fontSize) || !EVOLUTION_FONT_SIZES.includes(evolution.fontSize)) {
+    throw new AppError('Selecione um tamanho de fonte da evolução entre 8 e 14.', 'VALIDATION_ERROR');
+  }
 
   return { patient, evolution, medications, months, standalone };
 }
@@ -133,5 +141,6 @@ module.exports = {
   ROUTES,
   MEDICATION_TYPES,
   INJECTION_PERIODS,
+  EVOLUTION_FONT_SIZES,
   normalizePayload
 };

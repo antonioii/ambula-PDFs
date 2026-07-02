@@ -80,6 +80,35 @@ test('aceita identificação, evolução, meses e medicações vazios', () => {
   });
   assert.deepEqual(normalized.medications, []);
   assert.equal(normalized.months, 5);
+  assert.equal(normalized.evolution.fontSize, 10);
+});
+
+test('ignora linhas orais vazias mesmo quando carregam período da UI', () => {
+  const normalized = normalizePayload({
+    patient: {},
+    evolution: {},
+    medications: [
+      { name: 'Medicamento 1', route: 'ORAL', type: 'CP', breakfast: '1' },
+      { route: 'ORAL', type: 'CP', period: 'MENSAL' },
+      { route: 'ORAL', type: 'CP', period: 'MENSAL' }
+    ],
+    months: 1
+  });
+
+  assert.equal(normalized.medications.length, 1);
+  assert.equal(normalized.medications[0].name, 'Medicamento 1');
+});
+
+test('normaliza tamanho da fonte da evolução entre 8 e 14', () => {
+  const payload = validPayload();
+  payload.evolution.fontSize = '14';
+  assert.equal(normalizePayload(payload).evolution.fontSize, 14);
+
+  payload.evolution.fontSize = '7';
+  assert.throws(() => normalizePayload(payload), /fonte da evolução entre 8 e 14/i);
+
+  payload.evolution.fontSize = '10.5';
+  assert.throws(() => normalizePayload(payload), /fonte da evolução entre 8 e 14/i);
 });
 
 test('aceita medicação parcialmente preenchida e omite campos ausentes', () => {

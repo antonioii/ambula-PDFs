@@ -62,3 +62,45 @@ test('OAuth localhost valida state, salva tokens e retorna status sanitizado', a
   assert.equal(disconnected.connected, false);
   assert.equal(storedTokens, null);
 });
+
+test('OAuth pendente pode ser cancelado sem aguardar timeout', async () => {
+  class OAuth2 {
+    constructor(_clientId, _clientSecret, redirectUri) {
+      this.redirectUri = redirectUri;
+    }
+
+    generateAuthUrl({ state }) {
+      const url = new URL('https://auth.test/authorize');
+      url.searchParams.set('state', state);
+      url.searchParams.set('redirect_uri', this.redirectUri);
+      return url.toString();
+    }
+  }
+
+  let markOpened;
+  const opened = new Promise((resolve) => {
+    markOpened = resolve;
+  });
+  const auth = createGmailAuth({
+    oauthClientConfig: {
+      load: async () => ({ clientId: 'id', clientSecret: 'secret' }),
+      getStatus: async () => ({ configured: true })
+    },
+    tokenStore: {
+      hasTokens: async () => false,
+      setTokens: async () => {},
+      deleteTokens: async () => {}
+    },
+    googleApi: { auth: { OAuth2 } },
+    openExternal: async () => {
+      markOpened();
+    },
+    timeoutMs: 3000
+  });
+
+  const pending = auth.connect();
+  await opened;
+  assert.deepEqual(auth.cancelConnect(), { canceled: true });
+  await assert.rejects(pending, /cancelada/i);
+  assert.deepEqual(auth.cancelConnect(), { canceled: false });
+});
