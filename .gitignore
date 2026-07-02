@@ -1,0 +1,4 @@
+node_modules/
+oauth-client.local.json
+*.pdf
+!templates/*.pdf

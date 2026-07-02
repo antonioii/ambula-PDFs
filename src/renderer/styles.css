@@ -113,6 +113,24 @@ h2 {
   gap: 10px;
 }
 
+.section-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.font-size-field {
+  min-width: 112px;
+  grid-template-columns: 1fr 64px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.font-size-field select {
+  padding: 6px 8px;
+}
+
 .step {
   display: grid;
   width: 28px;
@@ -310,6 +328,11 @@ select:focus {
   border: 1px solid var(--line);
   background: #fff;
   color: #34443a;
+}
+
+.danger-action {
+  border-color: #f0b8b2;
+  color: var(--danger);
 }
 
 .output-options {
@@ -537,6 +560,11 @@ dialog::backdrop {
   .patient-grid,
   .form-grid {
     grid-template-columns: 1fr;
+  }
+
+  .section-actions {
+    display: grid;
+    justify-items: end;
   }
 
   .span-2 {

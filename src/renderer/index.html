@@ -53,7 +53,21 @@
               <span class="step">02</span>
               <h2>Evolução</h2>
             </div>
-            <span class="hint">A capacidade final é validada pelas linhas do template.</span>
+            <div class="section-actions">
+              <label class="font-size-field">
+                Fonte no PDF
+                <select id="evolution-font-size">
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10" selected>10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                </select>
+              </label>
+              <span class="hint">A capacidade final é validada pelas linhas do template.</span>
+            </div>
           </div>
           <label>
             Entrevista/HDA
@@ -181,6 +195,23 @@
       </form>
     </dialog>
 
+    <dialog id="new-appointment-dialog" class="compact-dialog">
+      <form class="dialog-card">
+        <div class="dialog-title">
+          <div>
+            <p class="eyebrow">Novo atendimento</p>
+            <h2>Limpar formulário atual?</h2>
+          </div>
+          <button id="new-appointment-close" class="icon-button" type="button" aria-label="Fechar">×</button>
+        </div>
+        <p class="dialog-copy">Todos os campos preenchidos deste atendimento serão apagados.</p>
+        <div class="dialog-actions">
+          <button id="new-appointment-cancel" class="ghost-button" type="button">Cancelar</button>
+          <button id="new-appointment-confirm" class="primary-button" type="button">Ok</button>
+        </div>
+      </form>
+    </dialog>
+
     <dialog id="email-dialog">
       <form id="email-form" class="dialog-card compact-dialog">
         <div class="dialog-title">
@@ -213,6 +244,7 @@
           <button id="email-disconnect" class="ghost-button" type="button">Desconectar</button>
           <button id="email-save" class="secondary-button" type="button">Salvar configurações</button>
           <button id="email-test" class="ghost-button" type="button">Enviar teste</button>
+          <button id="email-cancel-connect" class="ghost-button danger-action" type="button" hidden>Cancelar conexão</button>
         </div>
         <div id="email-status" class="status" role="status" aria-live="polite">
           As credenciais e tokens nunca são exibidos nesta tela.

@@ -16,6 +16,8 @@ function createGmailAuth({
   googleApi = google,
   timeoutMs = 180000
 }) {
+  let cancelActiveConnect = null;
+
   async function getAuthStatus() {
     const credentials = await oauthClientConfig.getStatus();
     let connected = false;
@@ -34,22 +36,28 @@ function createGmailAuth({
   }
 
   async function connect() {
+    if (cancelActiveConnect) {
+      throw new AppError('A autenticação Google já está em andamento.', 'OAUTH_IN_PROGRESS');
+    }
+
     const { clientId, clientSecret } = await oauthClientConfig.load();
     const state = crypto.randomBytes(24).toString('hex');
 
     return new Promise((resolve, reject) => {
       let timeout;
       let settled = false;
+      let server;
       const finish = (error, value) => {
         if (settled) return;
         settled = true;
         clearTimeout(timeout);
-        server.close();
+        cancelActiveConnect = null;
+        if (server?.listening) server.close();
         if (error) reject(error);
         else resolve(value);
       };
 
-      const server = http.createServer(async (request, response) => {
+      server = http.createServer(async (request, response) => {
         try {
           const requestUrl = new URL(request.url, 'http://127.0.0.1');
           if (requestUrl.pathname !== '/oauth2callback') {
@@ -79,6 +87,9 @@ function createGmailAuth({
           finish(error);
         }
       });
+
+      cancelActiveConnect = () =>
+        finish(new AppError('A autenticação Google foi cancelada.', 'OAUTH_CANCELED'));
 
       server.once('error', (error) => finish(error));
       server.listen(0, '127.0.0.1', async () => {
@@ -111,7 +122,13 @@ function createGmailAuth({
     });
   }
 
-  return { connect, disconnect, getAuthStatus };
+  function cancelConnect() {
+    if (!cancelActiveConnect) return { canceled: false };
+    cancelActiveConnect();
+    return { canceled: true };
+  }
+
+  return { connect, disconnect, getAuthStatus, cancelConnect };
 }
 
 module.exports = { GMAIL_SEND_SCOPE, createGmailAuth };
